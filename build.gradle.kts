@@ -29,12 +29,11 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        create(providers.gradleProperty("platformType"), providers.gradleProperty("platformVersion"))
+        intellijIdeaCommunity(providers.gradleProperty("platformVersion"))
         pluginVerifier()
         zipSigner()
         testFramework(TestFrameworkType.Platform)
     }
-    testImplementation(libs.junit)
 }
 
 intellijPlatform {
@@ -67,6 +66,6 @@ intellijPlatform {
 
 tasks {
     wrapper {
-        gradleVersion = "8.11"
+        gradleVersion = "8.13"
     }
 }
