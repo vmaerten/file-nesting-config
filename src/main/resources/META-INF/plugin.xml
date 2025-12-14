@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>com.github.valentin.filenesting</id>
+    <name>File Nesting Config</name>
+    <vendor email="valentin@example.com" url="https://github.com/valentin">Valentin</vendor>
+
+    <description><![CDATA[
+    Advanced file nesting for JetBrains IDEs, similar to VS Code's file nesting feature.
+
+    Groups related configuration files under their parent file in the Project View:
+    <ul>
+        <li><b>package.json</b> groups .eslintrc, tsconfig.json, .prettierrc, lock files, etc.</li>
+        <li><b>README</b> groups LICENSE, CHANGELOG, CONTRIBUTING, etc.</li>
+        <li><b>Dockerfile</b> groups docker-compose files, .dockerignore, etc.</li>
+        <li>And many more patterns for common development tools</li>
+    </ul>
+
+    Inspired by <a href="https://github.com/antfu/vscode-file-nesting-config">antfu/vscode-file-nesting-config</a>.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <treeStructureProvider
+                implementation="com.github.valentin.filenesting.FileNestingTreeStructureProvider"
+                order="last"/>
+
+        <applicationConfigurable
+                parentId="appearance"
+                instance="com.github.valentin.filenesting.settings.FileNestingConfigurable"
+                id="com.github.valentin.filenesting.settings.FileNestingConfigurable"
+                displayName="File Nesting"/>
+
+        <applicationService
+                serviceImplementation="com.github.valentin.filenesting.settings.FileNestingSettings"/>
+    </extensions>
+</idea-plugin>
