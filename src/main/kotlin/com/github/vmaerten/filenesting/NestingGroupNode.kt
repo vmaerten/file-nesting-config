@@ -70,6 +70,12 @@ class NestingGroupNode(
         parentNode.navigate(requestFocus)
     }
 
+    /**
+     * Disable expand on double-click so that double-clicking navigates to the file
+     * instead of expanding/collapsing the node.
+     */
+    override fun expandOnDoubleClick(): Boolean = false
+
     override fun getVirtualFile(): VirtualFile? = parentNode.virtualFile
 
     override fun equals(other: Any?): Boolean {
