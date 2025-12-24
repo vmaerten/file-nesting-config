@@ -1,0 +1,29 @@
+version: '3'
+
+tasks:
+  build:
+    desc: Build the plugin (unsigned)
+    cmds:
+      - ./gradlew buildPlugin
+
+  publish:
+    desc: Build, sign and publish to JetBrains Marketplace
+    cmds:
+      - ./gradlew publishPlugin
+    requires:
+      vars: [PRIVATE_KEY_PASSWORD, PUBLISH_TOKEN]
+
+  clean:
+    desc: Clean build artifacts
+    cmds:
+      - ./gradlew clean
+
+  run:
+    desc: Run IDE with plugin installed
+    cmds:
+      - ./gradlew runIde
+
+  verify:
+    desc: Verify plugin compatibility
+    cmds:
+      - ./gradlew verifyPlugin
