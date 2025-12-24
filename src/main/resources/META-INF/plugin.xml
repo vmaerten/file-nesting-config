@@ -14,8 +14,18 @@
         <li>And many more patterns for common development tools</li>
     </ul>
 
-    Inspired by <a href="https://github.com/antfu/vscode-file-nesting-config">antfu/vscode-file-nesting-config</a>.
+    Can be toggled on/off in <b>Settings → Appearance → File Nesting</b>.
     ]]></description>
+
+    <change-notes><![CDATA[
+    <b>1.1.0</b>
+    <ul>
+        <li>Initial public release</li>
+        <li>50+ nesting patterns ported from vscode-file-nesting-config</li>
+        <li>Pattern priority: first defined pattern wins</li>
+        <li>Toggle in Settings → Appearance → File Nesting</li>
+    </ul>
+    ]]></change-notes>
 
     <depends>com.intellij.modules.platform</depends>
 
